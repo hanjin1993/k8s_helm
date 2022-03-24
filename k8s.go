@@ -19,6 +19,7 @@ var K8sClient *rest.Config
 获取k8s连接
 */
 func GetClientSet() (*kubernetes.Clientset, error) {
+	// /root/.kube/config 这个文件是通过service_account token 通过kubectl config生成 配置文件
 	kubeConfig := pflag.String("kubeConfig", "/root/.kube/config", "kubeConfig path")
 	if K8sClient == nil {
 		client, err := clientcmd.BuildConfigFromFlags("", *kubeConfig)

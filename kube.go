@@ -11,6 +11,7 @@ import (
 func InitKubectl() {
 	k8sApiServer := "https://kubernetes.default:443"
 	k8sToken := ""
+	// /var/run/secrets/kubernetes.io/serviceaccount/token 这个文件是通过设置service_account账号之后在deployment内设置serviceAccountName 保存重启pod pod内生成此token
 	tokenPath := "/var/run/secrets/kubernetes.io/serviceaccount/token"
 	if k8sToken == "" {
 		b, err := ioutil.ReadFile(tokenPath)
