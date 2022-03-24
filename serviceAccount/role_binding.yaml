@@ -1,0 +1,13 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: apaas-architecture-control
+  namespace: gjdw
+subjects:
+- kind: ServiceAccount
+  name: apaas-architecture-control
+  namespace: gjdw
+roleRef:
+  kind: ClusterRole
+  name: apaas-architecture-control
+  apiGroup: rbac.authorization.k8s.io
